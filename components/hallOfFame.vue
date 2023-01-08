@@ -4,23 +4,13 @@
 
         <div class="flex mt-8 items-center">
             <h3>
-                Les grosses couilles
-            </h3>
-            <b-tooltip label="Le pari remporté qui a le plus gros ratio mise/côte">
-                <span class="flex items-center mdi mdi-information ml-1"></span>
-            </b-tooltip>
-        </div>
-        <BetCard class="mt-2" :bet="bet"></BetCard>
-
-        <div class="flex mt-8 items-center">
-            <h3>
                 L'expert
             </h3>
             <b-tooltip label="Le pari remporté qui a la plus grosse côte">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <BetCard class="mt-2" :bet="bet"></BetCard>
+        <BetCard class="mt-2" :bet="theExpert"></BetCard>
 
         <div class="flex mt-8 items-center">
             <h3>
@@ -30,7 +20,7 @@
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <BetCard class="mt-2" :bet="bet"></BetCard>
+        <BetCard class="mt-2" :bet="theMoula"></BetCard>
 
         <div class="flex mt-8 items-center">
             <h3>
@@ -42,26 +32,46 @@
         </div>
         <div class="bg-white w-full flex justify-between items-center py-2 rounded-xl px-8 mt-2">
             <div class="flex items-center">
-                <h3 class="ml-4 text-lg <sm:text-sm">Simon</h3>
+                <h3 class="ml-4 text-lg <sm:text-sm">{{theDrugman.name}}</h3>
             </div>
 
             <div class="flex">
-                <h3 class="text-lg text-center <sm:text-sm">245 paris</h3>
+                <h3 class="text-lg text-center <sm:text-sm">{{theDrugman.count}} paris</h3>
             </div>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
+import { groupBy } from 'lodash';
+import { computed } from 'vue';
+import { Bet } from '~/types/types';
 
-  let bet = {
-    win: false,
-    cote: 1.30,
-    mise: 10,
-    money: -10,
-    title: 'Manchester United - Arsenal',
-    better: 'Simon',
-    date: "05/01/2023"
-  }
+const props = defineProps<{
+    bets: Bet[]
+}>()
+
+let theExpert = computed(() => {
+    return props.bets.sort((a, b) => {
+        return a.odd - b.odd
+    }).reverse()[0]
+})
+
+let theMoula = computed(() => {
+    return props.bets.sort((a, b) => {
+        return a.winLose - b.winLose
+    }).reverse()[0]
+})
+
+let theDrugman = computed(() => {
+    let drugman = Object.values(groupBy(props.bets, 'better')).sort((a, b) => {
+        return a.length - b.length
+    }).reverse()[0]
+
+    return {
+        count: drugman.length,
+        name: drugman[0].better
+    }
+})
 
 </script>

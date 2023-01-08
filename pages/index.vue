@@ -8,7 +8,7 @@
 
       <Championship v-if="viewSelection === 'championship'" :bets="bets"></Championship>
 
-      <HallOfFame v-if="viewSelection === 'hof'"></HallOfFame>
+      <HallOfFame v-if="viewSelection === 'hof'" :bets="bets"></HallOfFame>
     </div>
 </template>
 
