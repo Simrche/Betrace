@@ -25,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/firestore.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,7 +54,7 @@ export default {
           appId: "1:992930789688:web:e0d30c472f50da7d96a9cd"
         },
         services: {
-          auth: true // Just as example. Can be any other service.
+          firestore: true,
         }
       }
     ],
