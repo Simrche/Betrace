@@ -5,13 +5,22 @@
       <Bets v-if="viewSelection === 'bets'" @add="viewSelection = 'create'"></Bets>
 
       <Create v-if="viewSelection === 'create'"></Create>
+
+      <Championship v-if="viewSelection === 'championship'"></Championship>
+
+      <HallOfFame v-if="viewSelection === 'hof'"></HallOfFame>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { getFirestore } from 'firebase/firestore'
 
 let viewSelection = ref('bets')
+
+const db = getFirestore()
+
+console.log(db)
 
 </script>
 

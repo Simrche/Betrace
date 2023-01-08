@@ -31,9 +31,9 @@
                 <b-numberinput step="0.1" min="1" exponential controls-position="compact" controls-rounded v-model="initialBet.cote"></b-numberinput>
             </b-field>
 
-            <div>
+            <div v-if="initialBet.win !== null">
                 <p :class="{'text-green-500': initialBet.win, 'text-red-600': !initialBet.win}">
-                    {{ initialBet.win ? `Gain : ${(initialBet.mise * initialBet.cote - initialBet.mise).toFixed(2)}` : `Perte : ${initialBet.mise}` }}
+                    {{ initialBet.win ? `Gain : ${(initialBet.mise * initialBet.cote - initialBet.mise).toFixed(2)}` : `Perte : ${initialBet.mise.toFixed(2)}` }}
                 </p>
             </div>
 

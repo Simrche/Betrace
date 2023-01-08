@@ -41,7 +41,22 @@ export default {
   modules: [
     'nuxt-buefy',
     'nuxtjs-mdi-font',
-
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: "AIzaSyBWrm8vCcnq2aDZDivI1KbBK9kFfsKEoOM",
+          authDomain: "betrace-d88e6.firebaseapp.com",
+          projectId: "betrace-d88e6",
+          storageBucket: "betrace-d88e6.appspot.com",
+          messagingSenderId: "992930789688",
+          appId: "1:992930789688:web:e0d30c472f50da7d96a9cd"
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ],
     ['nuxt-buefy', { /* buefy options */ }]
   ],
 
