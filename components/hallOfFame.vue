@@ -64,16 +64,18 @@ const props = defineProps<{
     bets: Bet[]
 }>()
 
+let initialBet = props.bets
+
 let theRich = computed(() => {
-    return props.bets.sort((a, b) => {
+    return initialBet.sort((a, b) => {
         return a.winLose - b.winLose
-    }).reverse()[0]
+    })[initialBet.length - 1]
 })
 
 let theExpert = computed(() => {
-    return props.bets.sort((a, b) => {
+    return initialBet.sort((a, b) => {
         return a.odd - b.odd
-    }).reverse()[0]
+    })[initialBet.length - 1]
 })
 
 let theBalls = computed(() => {
@@ -81,7 +83,7 @@ let theBalls = computed(() => {
         return a.bet - b.bet
     })
 
-    if(ball.length) return ball.reverse()[0]
+    if(ball.length) return ball[ball.length - 1]
     else return undefined
 })
 
