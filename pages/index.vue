@@ -6,7 +6,7 @@
 
       <Create v-if="viewSelection === 'create'" @create="viewSelection = 'bets'; fetchBets()"></Create>
 
-      <Championship v-if="viewSelection === 'championship'"></Championship>
+      <Championship v-if="viewSelection === 'championship'" :bets="bets"></Championship>
 
       <HallOfFame v-if="viewSelection === 'hof'"></HallOfFame>
     </div>
@@ -47,7 +47,6 @@ async function fetchBets() {
 }
 
 let sortedBets = computed(() => {
-  console.log(bets.value)
   return bets.value.sort((a: Bet, b: Bet) => {
     return a.id - b.id
   }).reverse()

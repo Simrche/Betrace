@@ -25,7 +25,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/firestore.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -58,7 +57,8 @@ export default {
         }
       }
     ],
-    ['nuxt-buefy', { /* buefy options */ }]
+    ['nuxt-buefy', { /* buefy options */ }],
+    "nuxt-lodash",
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

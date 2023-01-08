@@ -91,9 +91,11 @@ async function save() {
             id: fetchBets.docs.length + 1,
             ...initialBet.value,
             date: `${date.getDate() > 10 ? date.getDate() : '0' + date.getDate() }/${(date.getMonth() + 1) > 9 ? (date.getMonth() + 1) : '0' + (date.getMonth() + 1)}/${date.getFullYear()}`,
-            winLose: initialBet.value.win ? (initialBet.value.bet * initialBet.value.odd - initialBet.value.bet).toFixed(2) : -(initialBet.value.bet).toFixed(2),
+            winLose: initialBet.value.win ? +(initialBet.value.bet * initialBet.value.odd - initialBet.value.bet).toFixed(2) : -(initialBet.value.bet).toFixed(2),
             createdAt: date.setDate((new Date).getDate() + 7)
         })
+
+        emit('create')
 
         return;
     }
@@ -106,7 +108,7 @@ async function save() {
         id: lastBet.id + 1,
         ...initialBet.value,
         date: `${date.getDate() > 10 ? date.getDate() : '0' + date.getDate() }/${(date.getMonth() + 1) > 9 ? (date.getMonth() + 1) : '0' + (date.getMonth() + 1)}/${date.getFullYear()}`,
-        winLose: initialBet.value.win ? (initialBet.value.bet * initialBet.value.odd - initialBet.value.bet).toFixed(2) : -(initialBet.value.bet).toFixed(2),
+        winLose: initialBet.value.win ? +(initialBet.value.bet * initialBet.value.odd - initialBet.value.bet).toFixed(2) : -(initialBet.value.bet).toFixed(2),
         createdAt: date.setDate((new Date).getDate() - 10)
     })
 
