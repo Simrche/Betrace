@@ -13,12 +13,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore"
 import { Bet } from '~/types/types';
 
 let viewSelection = ref('bets')
+
+watch(viewSelection, () => {
+  if(viewSelection.value === 'bets') {
+    fetchBets()
+  }
+})
 
 const firebaseConfig = {
   apiKey: "AIzaSyBWrm8vCcnq2aDZDivI1KbBK9kFfsKEoOM",
