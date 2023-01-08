@@ -4,6 +4,16 @@
 
         <div class="flex mt-8 items-center">
             <h3>
+                Le nouveau riche
+            </h3>
+            <b-tooltip label="Le plus gros gain">
+                <span class="flex items-center mdi mdi-information ml-1"></span>
+            </b-tooltip>
+        </div>
+        <BetCard class="mt-2" :bet="theRich"></BetCard>
+
+        <div class="flex mt-8 items-center">
+            <h3>
                 L'expert
             </h3>
             <b-tooltip label="Le pari remporté qui a la plus grosse côte">
@@ -14,13 +24,14 @@
 
         <div class="flex mt-8 items-center">
             <h3>
-                La moula
+                Les grosses couilles
             </h3>
-            <b-tooltip label="Le pari qui a la plus grosse mise">
+            <b-tooltip label="Le pari qui a la plus grosse mise et une côte minimum de 1.8">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <BetCard class="mt-2" :bet="theMoula"></BetCard>
+        <BetCard class="mt-2" :bet="theBalls" v-if="theBalls"></BetCard>
+        <p class="text-lg text-slate-500" v-else>Il n'y a pas de grosses couilles ici</p>
 
         <div class="flex mt-8 items-center">
             <h3>
@@ -51,16 +62,25 @@ const props = defineProps<{
     bets: Bet[]
 }>()
 
+let theRich = computed(() => {
+    return props.bets.sort((a, b) => {
+        return a.winLose - b.winLose
+    }).reverse()[0]
+})
+
 let theExpert = computed(() => {
     return props.bets.sort((a, b) => {
         return a.odd - b.odd
     }).reverse()[0]
 })
 
-let theMoula = computed(() => {
-    return props.bets.sort((a, b) => {
+let theBalls = computed(() => {
+    let ball = props.bets.filter(bet => bet.odd >= 1.8).sort((a, b) => {
         return a.bet - b.bet
-    }).reverse()[0]
+    })
+
+    if(ball.length) return ball.reverse()[0]
+    else return undefined
 })
 
 let theDrugman = computed(() => {
