@@ -40,13 +40,13 @@
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <div class="bg-white w-full flex justify-between items-center py-4 rounded-xl px-8 mt-2">
+        <div class="bg-white w-full flex justify-between items-center py-2 rounded-xl px-8 mt-2">
             <div class="flex items-center">
-                <h3 class="ml-4 text-lg">Simon</h3>
+                <h3 class="ml-4 text-lg <sm:text-sm">Simon</h3>
             </div>
 
             <div class="flex">
-                <h3 class="text-lg text-center">245 paris</h3>
+                <h3 class="text-lg text-center <sm:text-sm">245 paris</h3>
             </div>
         </div>
     </section>

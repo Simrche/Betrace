@@ -1,5 +1,5 @@
 <template>
-    <div class="px-48 w-full bg-slate-200 min-h-screen pt-4">
+    <div class=" w-full bg-slate-200 min-h-screen pt-4 pb-8 <sm:px-2 sm:px-4 md:px-16 lg:px-48">
       <Header @redirection="viewSelection = $event"></Header>
 
       <Bets v-if="viewSelection === 'bets'" @add="viewSelection = 'create'"></Bets>

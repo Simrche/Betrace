@@ -3,6 +3,15 @@
         <h2 class=" text-xl font-bold">Ajouter un pari</h2>
 
         <div class="mt-8">
+            <b-field label="C'est qui ?">
+                <b-select placeholder="Quel parieur est-tu ?" v-model="initialBet.better">
+                    <option>Simon</option>
+                    <option>Léo</option>
+                    <option>Hugo</option>
+                    <option>Toms</option>
+                </b-select>
+            </b-field>
+
             <b-field label="Tu as gagné ?" class="w-48">
                 <b-radio-button v-model="initialBet.win"
                     :native-value="false"
@@ -20,7 +29,7 @@
             </b-field>
 
             <b-field label="Titre">
-                <b-input placeholder="Arsenal - Manchester United" v-model="initialBet.title"></b-input>
+                <b-input placeholder="Victoire de Arsenal contre Manchester United" v-model="initialBet.title"></b-input>
             </b-field>
 
             <b-field label="Mise" class="w-48">
@@ -52,6 +61,7 @@ let initialBet = ref({
     title: "",
     mise: 0,
     cote: 1,
+    better: null
 })
 
 </script>
