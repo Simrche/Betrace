@@ -6,5 +6,6 @@ export interface Bet {
     odd: number, 
     better: string, 
     winLose: number, 
-    date: string
+    date: string,
+    createdAt: number
 }

@@ -16,7 +16,7 @@
             <h3>
                 La moula
             </h3>
-            <b-tooltip label="Le pari remporté qui a la plus grosse mise">
+            <b-tooltip label="Le pari qui a la plus grosse mise">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
@@ -59,7 +59,7 @@ let theExpert = computed(() => {
 
 let theMoula = computed(() => {
     return props.bets.sort((a, b) => {
-        return a.winLose - b.winLose
+        return a.bet - b.bet
     }).reverse()[0]
 })
 

@@ -1,5 +1,4 @@
 <template>
-
     <section class="mt-16 pb-4">
 
         <div class="flex justify-between">
@@ -15,7 +14,11 @@
           </div>
         </div>
 
-        <BetCard :bet="bet" v-for="(bet, index) in bets" :key="index" class="mt-2"></BetCard>
+        <template v-if="bets && bets.length">
+          <BetCard :bet="bet" v-for="(bet, index) in bets" :key="index" class="mt-2"></BetCard>
+        </template>
+
+        <p v-else class="text-lg text-slate-400">Pas de paris</p>
     </section>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <header class="flex items-center">
+    <header class="flex <sm:flex-col items-center">
         <h1 class="text-3xl font-bold">Betrace</h1>
 
         <ul class="gap-x-6 ml-16 <md:gap-x-2 <md:ml-2 flex items-center">
