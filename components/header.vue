@@ -8,7 +8,7 @@
           <li class="text-lg ml-20 <md:text-md <md:ml-2 cursor-pointer" @click="$emit('redirection', 'hof')">Hall of Fame</li>
         </ul>
 
-        <div class="absolute bg-white w-full h-16 bottom-0 hidden justify-around <sm:flex">
+        <div class="fixed bg-white w-full h-16 bottom-0 hidden justify-around <sm:flex z-10">
           <div class="flex flex-col justify-center items-center w-1/3" :class="{'bg-slate-300': tab === 'bets'}" @click="$emit('redirection', 'bets')">
             <span class="mdi mdi-cash-multiple text-2xl"></span>
             <p :class="{'font-bold': tab === 'bets'}" class="text-sm">Paris</p>
