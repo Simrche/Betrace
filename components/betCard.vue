@@ -5,7 +5,7 @@
             <span class="mdi mdi-close text-4xl text-red-600 <sm:text-sm" v-else></span>
             <h3 class="ml-4 text-lg <sm:text-sm w-16 <sm:w-6">{{ bet.better }}</h3>
             <div class="ml-32 <sm:hidden">
-                <h3 class="text-lg max-w-78 hidden lg:block">{{ bet.title }}</h3>
+                <h3 class="text-lg max-w-78 hidden lg:block truncate">{{ bet.title }}</h3>
                 <p class="text-xs text-slate-400">{{ bet.date }}</p>
             </div>
         </div>

@@ -6,7 +6,7 @@
             <h3>
                 Le nouveau riche
             </h3>
-            <b-tooltip label="Le plus gros gain">
+            <b-tooltip size="is-small" multilined label="Le plus gros gain">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
@@ -16,7 +16,7 @@
             <h3>
                 L'expert
             </h3>
-            <b-tooltip label="Le pari remporté qui a la plus grosse côte">
+            <b-tooltip size="is-small" multilined label="Le pari remporté qui a la plus grosse côte">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
@@ -26,7 +26,7 @@
             <h3>
                 Les grosses couilles
             </h3>
-            <b-tooltip label="Le pari qui a la plus grosse mise et une côte minimum de 1.8">
+            <b-tooltip size="is-small" multilined label="Le pari qui a la plus grosse mise et une côte minimum de 1.8">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
@@ -37,7 +37,7 @@
             <h3>
                 Le drogué
             </h3>
-            <b-tooltip label="Le joueur qui a le plus grand nombre de pari">
+            <b-tooltip size="is-small" multilined label="Le joueur qui a le plus grand nombre de pari">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
