@@ -1,11 +1,11 @@
 <template>
-    <section class="mt-16">
+    <section class="mt-16 <sm:mt-4 <sm:pb-16" >
         <h2 class=" text-xl font-bold">Classements</h2>
 
         <b-tabs class="mt-4" v-model="tab">
             <b-tab-item value="allTime" label="All Time">
-                <div class="flex justify-end mt-4 px-8">
-                    <div class="w-2/5 flex">
+                <div class="flex justify-end mt-4 px-8 <sm:px-2">
+                    <div class="w-2/5 flex <sm:w-4/5">
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Mise Moyenne</p>
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Côte Moyenne</p>
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Gain/Perte</p>
@@ -18,8 +18,8 @@
             </b-tab-item>
 
             <b-tab-item value="month" label="Mois">
-                <div class="flex justify-end mt-4 px-8">
-                    <div class="w-2/5 flex">
+                <div class="flex justify-end mt-4 px-8 <sm:px-2">
+                    <div class="w-2/5 flex <sm:w-4/5">
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Mise Moyenne</p>
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Côte Moyenne</p>
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Gain/Perte</p>
@@ -32,8 +32,8 @@
             </b-tab-item>
 
             <b-tab-item value="week" label="Semaine">
-                <div class="flex justify-end mt-4 px-8">
-                    <div class="w-2/5 flex">
+                <div class="flex justify-end mt-4 px-8 <sm:px-2">
+                    <div class="w-2/5 flex <sm:w-4/5">
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Mise Moyenne</p>
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Côte Moyenne</p>
                         <p class="w-1/3 text-center text-slate-400 text-sm <sm:text-[0.8rem]">Gain/Perte</p>

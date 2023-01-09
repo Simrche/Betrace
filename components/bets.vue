@@ -1,6 +1,5 @@
 <template>
-    <section class="mt-16 pb-4">
-
+    <section class="mt-16 pb-4 <sm:mt-4 <sm:pb-16">
         <div class="flex justify-between">
           <h2 class=" text-xl font-bold">Paris</h2>
           <b-button type="is-primary" @click="$emit('add')">Ajouter un pari</b-button>

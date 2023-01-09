@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-16" v-if="bets && bets.length">
+    <section class="mt-16 <sm:mt-4 <sm:pb-16" v-if="bets && bets.length">
         <h2 class=" text-xl font-bold">Hall of fame</h2>
 
         <div class="flex mt-8 items-center">
@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <p v-else class="mt-16 text-lg text-slate-500">Pas de paris</p>
+    <p v-else class="mt-16 text-lg text-slate-500 <sm:mt-4">Pas de paris</p>
 </template>
 
 <script setup lang="ts">

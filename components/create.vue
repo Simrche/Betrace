@@ -1,6 +1,9 @@
 <template>
-    <section class="mt-16">
-        <h2 class=" text-xl font-bold">Ajouter un pari</h2>
+    <section class="mt-16 <sm:mt-4 <sm:pb-16">
+        <div class="flex justify-between items-center">
+            <h2 class=" text-xl font-bold">Ajouter un pari</h2>
+            <b-button type="is-primary" @click="$emit('redirection', 'bets')">Retour</b-button>
+        </div>
 
         <div class="mt-8">
             <b-field label="C'est qui ?">
@@ -12,7 +15,6 @@
                 </b-select>
             </b-field>
             <p class="text-red-700 text-sm" v-if="checks.better">J'ai vraiment besoin de savoir qui tu es</p>
-
 
             <b-field label="Tu as gagné ?" class="w-48">
                 <b-radio-button v-model="initialBet.win"

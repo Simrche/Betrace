@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-white w-full flex justify-between items-center py-2 rounded-xl px-8 mt-2">
+    <div class="bg-white w-full flex justify-between items-center py-2 rounded-xl px-8 mt-2 <md:px-2">
         <div class="flex items-center">
-            <h3 class="ml-4 text-lg <sm:text-sm" :class="{'text-yellow-400': index === 0, 'text-gray-400': index === 1, 'text-amber-800': index === 2}">{{ index + 1 }}</h3>
-            <h3 class="ml-4 text-lg <sm:text-sm" :class="{'text-yellow-400': index === 0, 'text-gray-400': index === 1, 'text-amber-800': index === 2}">{{ stats.better }}</h3>
+            <h3 class="<sm:ml-1 ml-4 text-lg <sm:text-sm" :class="{'text-yellow-400': index === 0, 'text-gray-400': index === 1, 'text-amber-800': index === 2}">{{ index + 1 }}.</h3>
+            <h3 class="<sm:ml-1 ml-4 text-lg <sm:text-sm" :class="{'text-yellow-400': index === 0, 'text-gray-400': index === 1, 'text-amber-800': index === 2}">{{ stats.better }}</h3>
         </div>
 
-        <div class="flex w-2/5">
+        <div class="flex w-2/5 <sm:w-4/5">
             <h3 class="text-lg <sm:text-sm w-1/3 text-center">{{stats.bet.toFixed(2)}}€</h3>
             <h3 class="text-lg <sm:text-sm w-1/3 text-center">{{stats.odds.toFixed(2)}}</h3>
             <h3 class="text-lg <sm:text-sm w-1/3 text-center text-green-500" v-if="+stats.winLose > 0">{{stats.winLose}}€</h3>
