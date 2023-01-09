@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-16 <sm:mt-4 <sm:pb-16" v-if="bets && bets.length">
+    <section class="mt-16 <sm:mt-4 <sm:pb-16">
         <h2 class=" text-xl font-bold">Hall of fame</h2>
 
         <div class="flex mt-8 items-center">
@@ -10,7 +10,9 @@
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <BetCard class="mt-2" :bet="theRich"></BetCard>
+        <BetCard class="mt-2" :bet="theRich" :open="true" v-if="theRich"></BetCard>
+        <p class="text-sm text-slate-500" v-else>Il n'y a pas d'expert ici</p>
+
 
         <div class="flex mt-8 items-center">
             <h3>
@@ -20,7 +22,8 @@
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <BetCard class="mt-2" :bet="theExpert"></BetCard>
+        <BetCard class="mt-2" :bet="theExpert" :open="true" v-if="theExpert"></BetCard>
+        <p class="text-sm text-slate-500" v-else>Il n'y a pas d'expert ici</p>
 
         <div class="flex mt-8 items-center">
             <h3>
@@ -30,8 +33,8 @@
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <BetCard class="mt-2" :bet="theBalls" v-if="theBalls"></BetCard>
-        <p class="text-lg text-slate-500" v-else>Il n'y a pas de grosses couilles ici</p>
+        <BetCard class="mt-2" :bet="theBalls" v-if="theBalls" :open="true"></BetCard>
+        <p class="text-sm text-slate-500" v-else>Il n'y a pas de grosses couilles ici</p>
 
         <div class="flex mt-8 items-center">
             <h3>
@@ -41,7 +44,7 @@
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
-        <div class="bg-white w-full flex justify-between items-center py-2 rounded-xl px-8 mt-2">
+        <div class="bg-white w-full flex justify-between items-center py-2 rounded-xl px-8 mt-2" v-if="theDrugman">
             <div class="flex items-center">
                 <h3 class="ml-4 text-lg <sm:text-sm">{{theDrugman.name}}</h3>
             </div>
@@ -50,9 +53,9 @@
                 <h3 class="text-lg text-center <sm:text-sm">{{theDrugman.count}} paris</h3>
             </div>
         </div>
-    </section>
+        <p class="text-sm text-slate-500" v-else>Il n'y a pas de drogué ici</p>
 
-    <p v-else class="mt-16 text-lg text-slate-500 <sm:mt-4">Pas de paris</p>
+    </section>
 </template>
 
 <script setup lang="ts">
@@ -73,7 +76,7 @@ let theRich = computed(() => {
 })
 
 let theExpert = computed(() => {
-    return initialBet.sort((a, b) => {
+    return initialBet.filter(bet => bet.win).sort((a, b) => {
         return a.odd - b.odd
     })[initialBet.length - 1]
 })
