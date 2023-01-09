@@ -6,8 +6,8 @@
         </div>
 
         <div class="flex w-2/5">
-            <h3 class="text-lg <sm:text-sm w-1/3 text-center">{{stats.bet}}€</h3>
-            <h3 class="text-lg <sm:text-sm w-1/3 text-center">{{stats.odds}}</h3>
+            <h3 class="text-lg <sm:text-sm w-1/3 text-center">{{stats.bet.toFixed(2)}}€</h3>
+            <h3 class="text-lg <sm:text-sm w-1/3 text-center">{{stats.odds.toFixed(2)}}</h3>
             <h3 class="text-lg <sm:text-sm w-1/3 text-center text-green-500" v-if="+stats.winLose > 0">{{stats.winLose}}€</h3>
             <h3 class="text-lg <sm:text-sm w-1/3 text-center text-red-600" v-else>{{stats.winLose}}€</h3>
         </div>
