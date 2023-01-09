@@ -11,6 +11,8 @@
                     <option>Toms</option>
                 </b-select>
             </b-field>
+            <p class="text-red-700 text-sm" v-if="checks.better">J'ai vraiment besoin de savoir qui tu es</p>
+
 
             <b-field label="Tu as gagné ?" class="w-48">
                 <b-radio-button v-model="initialBet.win"
@@ -27,6 +29,8 @@
                     <span>Yep</span>
                 </b-radio-button>
             </b-field>
+            <p class="text-red-700 text-sm" v-if="checks.win">Tu as déjà vu un pari ni gagnant ni perdant ?</p>
+
 
             <b-field label="Titre">
                 <b-input placeholder="Victoire de Arsenal contre Manchester United" v-model="initialBet.title"></b-input>
@@ -35,10 +39,12 @@
             <b-field label="Mise" class="w-48">
                 <b-numberinput step="0.1" min="0" exponential controls-position="compact" controls-rounded v-model="initialBet.bet"></b-numberinput>
             </b-field>
+            <p class="text-red-700 text-sm" v-if="checks.bet">Un pari avec 0€ de mise ?</p>
 
             <b-field label="Côte" class="w-48">
                 <b-numberinput step="0.1" min="1" exponential controls-position="compact" controls-rounded v-model="initialBet.odd"></b-numberinput>
             </b-field>
+            <p class="text-red-700 text-sm" v-if="checks.odd">Côte invalide</p>
 
             <div v-if="initialBet.win !== null">
                 <p :class="{'text-green-500': initialBet.win, 'text-red-600': !initialBet.win}">
@@ -81,10 +87,33 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 
+let checks = ref({
+    win: false,
+    title: false,
+    bet: false,
+    odd: false,
+    better: false,
+})
+
 async function save() {
     let fetchBets = await getDocs(collection(db, "bets"))
 
     let date = new Date
+
+    checks.value = {
+        win: false,
+        title: false,
+        bet: false,
+        odd: false,
+        better: false,
+    }
+
+    if( initialBet.value.win !== false && initialBet.value.win !== true ) checks.value.win = true
+    if( initialBet.value.bet < 0 || !initialBet.value.bet ) checks.value.bet = true
+    if( initialBet.value.odd <= 1 || !initialBet.value.odd ) checks.value.odd = true
+    if( !initialBet.value.better ) checks.value.better = true
+
+    if(!(Object.values(initialBet.value)).every(check => !check)) return
 
     if(fetchBets.docs.length <= 1) {
         await addDoc(collection(db, 'bets'), {
