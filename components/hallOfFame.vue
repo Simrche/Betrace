@@ -29,7 +29,7 @@
             <h3>
                 Les grosses couilles
             </h3>
-            <b-tooltip size="is-small" multilined label="Le pari qui a la plus grosse mise et une côte minimum de 1.8">
+            <b-tooltip size="is-small" multilined label="Le pari qui a la plus grosse mise avec une côte minimum de 1.8">
                 <span class="flex items-center mdi mdi-information ml-1"></span>
             </b-tooltip>
         </div>
