@@ -44,7 +44,7 @@
             <p class="text-red-700 text-sm" v-if="checks.bet">Un pari avec 0€ de mise ?</p>
 
             <b-field label="Côte" class="w-48">
-                <b-numberinput step="0.1" min="1" exponential controls-position="compact" controls-rounded v-model="initialBet.odd"></b-numberinput>
+                <b-numberinput step="0.01" min="1" exponential controls-position="compact" controls-rounded v-model="initialBet.odd"></b-numberinput>
             </b-field>
             <p class="text-red-700 text-sm" v-if="checks.odd">Côte invalide</p>
 
@@ -115,7 +115,9 @@ async function save() {
     if( initialBet.value.odd <= 1 || !initialBet.value.odd ) checks.value.odd = true
     if( !initialBet.value.better ) checks.value.better = true
 
-    if(!(Object.values(initialBet.value)).every(check => !check)) return
+    console.log(checks.value)
+
+    if(!(Object.values(checks.value)).every(check => !check)) return
 
     if(fetchBets.docs.length <= 1) {
         await addDoc(collection(db, 'bets'), {
