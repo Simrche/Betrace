@@ -78,7 +78,7 @@ let theRich = computed(() => {
 let theExpert = computed(() => {
     return initialBet.filter(bet => bet.win).sort((a, b) => {
         return a.odd - b.odd
-    })[initialBet.length - 1]
+    })[initialBet.filter(bet => bet.win).length - 1]
 })
 
 let theBalls = computed(() => {
